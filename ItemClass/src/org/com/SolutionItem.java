@@ -14,7 +14,9 @@ public class SolutionItem {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-		int id, price;
+		
+		//insert the values intoo database
+		/*int id, price;
 		String name;
 		while (true) {
 			int ch;
@@ -39,8 +41,31 @@ public class SolutionItem {
 			default:
 				break;
 			}
-		}
-		//session.close();
+		}*/
+		
+		//retrieving the values in databases
+		
+		Item it=session.get(Item.class, 1);
+		System.out.println(it.getId());
+		System.out.println(it.getName());
+		System.out.println(it.getQty());
+		
+		//updating the values in databases
+		
+		/*Item it=session.get(Item.class, 1);
+		session.beginTransaction();
+		it.setId(1);
+		it.setName("kaviyarrasu");
+		it.setQty(5);
+		session.update(it);
+		session.getTransaction().commit();
+		System.out.println("Updated");*/
+		
+		//deleting the values in databases
+		
+		session.delete(it);
+		System.out.println("deleted");
+		session.close();
 	}
 
 }

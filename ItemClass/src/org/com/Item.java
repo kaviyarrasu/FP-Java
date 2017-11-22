@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="item_details")
+@Table(name="item")
 public class Item {
 		static int productcount;
 		static{
@@ -20,10 +20,10 @@ public class Item {
 		private String name;
 		@Column(name="item_qty")
 		private int qty;
-		/*public Item(){
+		public Item(){
 			super();
-			Item.productcount++;
-		}*/
+		//	Item.productcount++;
+		}
 	
 		public Item(int id, String name, int qty) {
 			super();
